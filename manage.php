@@ -1,3 +1,6 @@
+<?php 
+include("connect.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,11 +23,11 @@
             <div class="col-2">
                 <ul class="man-left">
                     <li> <a href="">Dashboard</a></li><br>
-                    <li> <a href="mandoc.html">Manage Doctors</span></a></li><br>
-                    <li> <a href="manpat.html">Manage Patients</span></a></li><br>
-                    <li> <a href="manuser.html">Manage users</span></a></li><br>
-                    <li> <a href="mancat.html">Manage Category</span></a></li><br>
-                    <li> <a href="manrep.html">Report</span></a></li><br>
+                    <li> <a href="mandoc.php">Manage Doctors</span></a></li><br>
+                    <li> <a href="manpat.php">Manage Patients</span></a></li><br>
+                    <li> <a href="manuser.php">Manage users</span></a></li><br>
+                   <!-- <li> <a href="mancat.php">Manage Category</span></a></li><br> -->
+                    <li> <a href="manrep.php">Report</span></a></li><br>
                 </ul>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("connect.php");
 ?>
 <!DOCTYPE html>
@@ -18,11 +18,11 @@ include("connect.php");
 <body>
 <html>
   <head>
-    <title>Suppliers page</title>
+    <title>patients page</title>
   </head>
   <body>
-<h1>Manage Doctors</h1>
-<div><a class="btn btn-primary" id="jaq" href="adddoctor.php"></i> Add Doctor&nbsp;<i class="fas fa-plus"></i></a></div>
+<h1>Patient Management</h1>
+<a class="btn btn-primary" id="jaq" href="addpatient.php"><i class="fas fa-plus"></i> Add Patient</a>
 <hr>
 <div class="row">
   <div class="col-3">
@@ -34,59 +34,34 @@ include("connect.php");
        <li class="list-item"><a href="mancat.php"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
        <li class="list-item"><a href="manpat.php"><i class="fas fa-file-signature"></i> Report</a></li>
      </ul>       
-   </div>
-   <div class="col-9">
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Number</th>
-            <th scope="col">Amazina</th>
-            <th scope="col">Specialite y'umuganga</th>
-            <th scope="col">Numero ya phone</th>
-          </tr>
-        </thead>
-        <tbody>
+     </div>
+            <div class="col-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Add patients</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="addpatientaction.php" method="POST">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Full name</label>
+                                <input type="text" class="form-control" id="pname" name="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Adress</label>
+                                <input type="text" class="form-control" id="paddress" name="address">
+                            </div>
 
-          <?php 
-          $sql = "SELECT * FROM doctors";
-          $result = $conn->query($sql);
-          
-          if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-              echo ' <tr>
-              <th scope="row">'.$row['did'].'</th>
-              <td>'.$row['dname'].'</td>
-              <td>'.$row['dspeciality'].'</td>
-              <td>'.$row['dphone'].'</td>
-              <td> <a class="btn btn-primary" href="editdoctor.php?did='.$row['did'].'"><i class="far fa-edit"></i> Edit item</a>
-                <a class="btn btn-danger" href="deletedoc.php?did='.$row['did'].'"><i class="fas fa-trash-alt"></i> Delete item</a></td>
-            </tr>';
-            }
-          } else {
-            echo "0 results";
-          }
-          $conn->close();
-          
-          ?>
-         
-          <!-- <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td> <button class="btn btn-primary"><i class="far fa-edit"></i> Edit item</button>
-              <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete item</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            <td> <button class="btn btn-primary"><i class="far fa-edit"></i> Edit item</button>
-              <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete item</button></td>
-          </tr> -->
-        </tbody>
-      </table>
-      </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Phone number</label>
+                                <input type="tel" class="form-control" id="pphone" name="phonenumber">
+                            </div>
+                         
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+</div>
 </div>
   </body>
 

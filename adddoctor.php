@@ -3,7 +3,6 @@ include("connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +13,10 @@ include("connect.php");
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
 </head>
-
 <body>
     <html>
-
     <head>
-        <title>Suppliers page</title>
+    <title>patients page</title>
     </head>
 
     <body>
@@ -30,11 +27,11 @@ include("connect.php");
             <div class="col-3">
                 <ul class="man-left">
                     <ul class="list-container">
-                        <li class="list-item"><a href="mandoc.html"><i class="fas fa-list-ul"></i> Manage Doctors</a></li>
-                        <li class="list-item"><a href="manpat.html"><i class="fas fa-users"></i> Manage Patients</a></li>
-                        <li class="list-item"><a href="manuser.html"><i class="fas fa-file-signature"></i> Manage users</a></li>
-                        <li class="list-item"><a href="mancat.html"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
-                        <li class="list-item"><a href="manpat.html"><i class="fas fa-file-signature"></i> Report</a></li>
+                        <li class="list-item"><a href="mandoc.php"><i class="fas fa-list-ul"></i> Manage Doctors</a></li>
+                        <li class="list-item"><a href="manpat.php"><i class="fas fa-users"></i> Manage Patients</a></li>
+                        <li class="list-item"><a href="manuser.php"><i class="fas fa-file-signature"></i> Manage users</a></li>
+                        <li class="list-item"><a href="mancat.php"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
+                        <li class="list-item"><a href="manpat.php"><i class="fas fa-file-signature"></i> Report</a></li>
                     </ul>
             </div>
             <div class="col-9">
@@ -57,7 +54,7 @@ include("connect.php");
                                 <label for="exampleInputPassword1" class="form-label">Phone number</label>
                                 <input type="tel" class="form-control" id="spec" name="phonenumber">
                             </div>
-                         
+
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>

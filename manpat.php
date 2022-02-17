@@ -70,7 +70,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html> -->
-<<!DOCTYPE html>
+<?php
+include("connect.php");
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -87,35 +90,35 @@
 <body>
 <html>
   <head>
-    <title>Suppliers page</title>
+    <title>patient page</title>
   </head>
   <body>
 <h1>Patient Management</h1>
-<button class="btn btn-primary" id="jaq"><i class="fas fa-plus"></i> Add Patient</button>
+<div><a class="btn btn-primary" id="jaq" href="addpatient.php"></i> Add Patient</a></div>
 <hr>
 <div class="row">
-  <div class="col-2">
+  <div class="col-3">
       <ul class="man-left">
      <ul class="list-container">
-       <li class="list-item"><a href="mandoc.html"><i class="fas fa-list-ul"></i> Manage Doctors</a></li>
-       <li class="list-item"><a href="manpat.html"><i class="fas fa-users"></i> Manage Patients</a></li>
-       <li class="list-item"><a href="manuser.html"><i class="fas fa-file-signature"></i> Manage users</a></li>
-       <li class="list-item"><a href="mancat.html"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
-       <li class="list-item"><a href="manpat.html"><i class="fas fa-file-signature"></i> Report</a></li>
+       <li class="list-item"><a href="mandoc.php"><i class="fas fa-list-ul"></i> Manage Doctors</a></li>
+       <li class="list-item"><a href="manpat.php"><i class="fas fa-users"></i> Manage Patients</a></li>
+       <li class="list-item"><a href="manuser.php"><i class="fas fa-file-signature"></i> Manage users</a></li>
+       <li class="list-item"><a href="mancat.php"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
+       <li class="list-item"><a href="manpat.php"><i class="fas fa-file-signature"></i> Report</a></li>
      </ul>       
    </div>
-   <div class="col-8">
+   <div class="col-9">
     <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Number</th>
-            <th scope="col">Izina ry' umuryango</th>
-            <th scope="col">Izina ry'idini</th>
-            <th scope="col">Department</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phonenumber</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
@@ -137,8 +140,31 @@
             <td>@twitter</td>
             <td> <button class="btn btn-primary"><i class="far fa-edit"></i> Edit item</button>
               <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete item</button></td>
-          </tr>
+          </tr> -->
+          <?php 
+        $sql = "SELECT * FROM patients";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+            echo ' <tr>
+            <th scope="row">'.$row['pid'].'</th>
+            <td>'.$row['pname'].'</td>
+            <td>'.$row['paddress'].'</td>
+            <td>'.$row['pphone'].'</td>
+            <td> 
+  <a class="btn btn-primary" href="editpatient.php?pid='.$row['pid'].'"><i class="far fa-edit"></i> Edit item</a>
+  <a class="btn btn-danger" href="deletepatient.php?pid='.$row['pid'].'"><i class="fas fa-trash-alt"></i> Delete item</a></td>
+          </tr>';
+          }
+        } else {
+          echo "0 results";
+        }
+        $conn->close();
+        
+        ?>
         </tbody>
+
       </table>
       </div>
 </div>

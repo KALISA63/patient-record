@@ -1,3 +1,6 @@
+<?php 
+include("connect.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +22,11 @@
           <ul class="man-left">
          <ul class="list-container">
          <ul class="list-container">
-           <li class="list-item"><a href="mandoc.html"><i class="fas fa-list-ul"></i> Manage Doctors</a></li>
-           <li class="list-item"><a href="manpat.html"><i class="fas fa-users"></i> Manage Patients</a></li>
-           <li class="list-item"><a href="manuser.html"><i class="fas fa-file-signature"></i> Manage users</a></li>
-           <li class="list-item"><a href="mancat.html"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
-           <li class="list-item"><a href="manpat.html"><i class="fas fa-file-signature"></i> Report</a></li>
+           <li class="list-item"><a href="mandoc.php"><i class="fas fa-list-ul"></i> Manage Doctors</a></li>
+           <li class="list-item"><a href="manpat.php"><i class="fas fa-users"></i> Manage Patients</a></li>
+           <li class="list-item"><a href="manuser.php"><i class="fas fa-file-signature"></i> Manage users</a></li>
+           <li class="list-item"><a href="mancat.php"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
+           <li class="list-item"><a href="manrep.php"><i class="fas fa-file-signature"></i> Report</a></li>
          </ul>       
        </div>
        <div class="col-8">

@@ -1,3 +1,6 @@
+<?php 
+include("connect.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,35 +18,35 @@
 <body>
 <html>
   <head>
-    <title>Suppliers page</title>
+    <title>patient page</title>
   </head>
   <body>
 <h1>Manage User</h1>
-<button class="btn btn-primary" id="jaq"></i> Add user&nbsp;<i class="fas fa-plus"></i></button>
+<a class="btn btn-primary" id="jaq" href="adduser.php"></i> Add user&nbsp;<i class="fas fa-plus"></i></a>
 <hr>
 <div class="row">
-  <div class="col-2">
+  <div class="col-3">
       <ul class="man-left">
      <ul class="list-container">
-       <li class="list-item"><a href="mandoc.html"><i class="fas fa-list-ul"></i> Manage Doctors</a></li>
-       <li class="list-item"><a href="manpat.html"><i class="fas fa-users"></i> Manage Patients</a></li>
-       <li class="list-item"><a href="manuser.html"><i class="fas fa-file-signature"></i> Manage users</a></li>
-       <li class="list-item"><a href="mancat.html"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
-       <li class="list-item"><a href="manpat.html"><i class="fas fa-file-signature"></i> Report</a></li>
+       <li class="list-item"><a href="mandoc.php"><i class="fas fa-list-ul"></i> Manage Doctors</a></li>
+       <li class="list-item"><a href="manpat.php"><i class="fas fa-users"></i> Manage Patients</a></li>
+       <li class="list-item"><a href="manuser.php"><i class="fas fa-file-signature"></i> Manage users</a></li>
+       <li class="list-item"><a href="mancat.php"><i class="fas fa-file-signature"></i> Manage categolies</a></li>
+       <li class="list-item"><a href="manrep.php"><i class="fas fa-file-signature"></i> Report</a></li>
      </ul>       
    </div>
-   <div class="col-8">
+   <div class="col-9">
     <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Number</th>
-            <th scope="col">Izina ry' umuryango</th>
-            <th scope="col">Izina ry'idini</th>
-            <th scope="col">Department</th>
+            <th scope="col">Amazina</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
@@ -65,8 +68,32 @@
             <td>@twitter</td>
             <td> <button class="btn btn-primary"><i class="far fa-edit"></i> Edit item</button>
               <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete item</button></td>
-          </tr>
+          </tr> -->
+
+          <?php 
+          $sql = "SELECT * FROM users";
+          $result = $conn->query($sql);
+          
+          if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              echo ' <tr>
+              <th scope="row">'.$row['usid'].'</th>
+              <td>'.$row['uname'].'</td>
+              <td>'.$row['uemail'].'</td>
+              <td>'.$row['upass'].'</td>
+              <td>
+             <a class="btn btn-primary" href="edituser.php?usid='.$row['usid'].'"><i class="far fa-edit"></i> Edit item</a>
+              <a class="btn btn-danger" href="deleteuser.php?usid='.$row['usid'].'"><i class="fas fa-trash-alt"></i> Delete item</a></td>
+            </tr>';
+            }
+          } else {
+            echo "0 results";
+          }
+          $conn->close();
+          
+          ?>
         </tbody>
+      
       </table>
       </div>
 </div>

@@ -1,8 +1,5 @@
 <?php
 include("connect.php");
-$sql = "SELECT * FROM doctors where did=" . $_GET['did'];
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +23,8 @@ $row = $result->fetch_assoc();
     </head>
 
     <body>
-        <h1>Manage Doctors</h1>
-        <button class="btn btn-primary" id="jaq"></i> Add Doctor&nbsp;<i class="fas fa-plus"></i></button>
+        <h1>Manage users</h1>
+        <button class="btn btn-primary" id="jaq"></i> Add user&nbsp;<i class="fas fa-plus"></i></button>
         <hr>
         <div class="row">
             <div class="col-3">
@@ -43,24 +40,23 @@ $row = $result->fetch_assoc();
             <div class="col-9">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Edit doctor</h3>
+                        <h3>Add users</h3>
                     </div>
                     <div class="card-body">
-                        <form action="editdoctoraction.php?did=<?php echo $_GET['did'] ?>" method="POST">
+                        <form action="adduseraction.php" method="POST">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Full name</label>
-                                <input type="text" class="form-control" id="name" name="name" value="<?php echo  $row['dname'] ?>">
+                                <label for="exampleInputName" class="form-label">Full name</label>
+                                <input type="text" class="form-control" id="name" name="name">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Speciality</label>
-                                <input type="text" class="form-control" id="spec" name="speciality" value="<?php echo $row['dspeciality'] ?>">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Phone number</label>
-                                <input type="tel" class="form-control" id="spec" name="phonenumber" value="<?php echo $row['dphone'] ?>">
+                                <label for="exampleInputEmail" class="form-label">email</label>
+                                <input type="email" class="form-control" id="uid" name="Email">
                             </div>
 
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">passaword</label>
+                                <input type="password" class="form-control" id="password" name="password">
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>

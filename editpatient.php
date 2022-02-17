@@ -1,6 +1,6 @@
 <?php
 include("connect.php");
-$sql = "SELECT * FROM doctors where did=" . $_GET['did'];
+$sql = "SELECT * FROM patients where pid=" . $_GET['pid'];
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 ?>
@@ -43,22 +43,23 @@ $row = $result->fetch_assoc();
             <div class="col-9">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Edit doctor</h3>
+                        <h3>Edit patient</h3>
                     </div>
                     <div class="card-body">
-                        <form action="editdoctoraction.php?did=<?php echo $_GET['did'] ?>" method="POST">
+                        <form action="editpatientaction.php?pid=<?php echo $_GET['pid'] ?>" method="POST">
+        
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Full name</label>
-                                <input type="text" class="form-control" id="name" name="name" value="<?php echo  $row['dname'] ?>">
+                                <input type="text" class="form-control" id="name" name="name" value="<?php echo  $row['pname'] ?>">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Speciality</label>
-                                <input type="text" class="form-control" id="spec" name="speciality" value="<?php echo $row['dspeciality'] ?>">
+                                <label for="exampleInputPassword1" class="form-label">address</label>
+                                <input type="text" class="form-control" id="padresss" name="address" value="<?php echo $row['paddress'] ?>">
                             </div>
 
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Phone number</label>
-                                <input type="tel" class="form-control" id="spec" name="phonenumber" value="<?php echo $row['dphone'] ?>">
+                                <input type="text" class="form-control" id="pphone" name="phonenumber" value="<?php echo $row['pphone'] ?>">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>
